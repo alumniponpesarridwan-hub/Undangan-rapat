@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Undangan Rapat Alumni Ar-Ridwan</title>
+<style>
+  /* --- FONT & BACKGROUND --- */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap');
+
+  :root {
+    --color-primary: #035096; /* Biru Gelap (Primary Blue) */
+    --color-secondary: #FFFFFF; /* Putih (Untuk Judul & Tombol Utama) */
+    --color-text-light: #FFFFFF; /* Putih */
+    --color-text-accent: #B2D7FF; /* Biru Muda/Aksen */
+    --color-background: linear-gradient(135deg, var(--color-primary) 0%, #156BB5 100%); /* Gradien Biru Baru */
+    --color-wa: #25D366; /* Hijau WhatsApp (Tetap) */
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--color-background);
+    color: var(--color-text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  /* --- CARD & ANIMATION --- */
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    max-width: 650px;
+    width: 100%;
+    /* Padding ditingkatkan untuk memberi ruang di sekitar konten */
+    padding: 45px 30px; 
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* --- TYPOGRAPHY --- */
+  h1 {
+    font-size: 2.4em; /* Ukuran font sedikit diperbesar */
+    color: var(--color-secondary);
+    margin: 0 0 5px 0; /* Margin atas 0, bawah 5px */
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    letter-spacing: 2px; 
+  }
+
+  h2 {
+    color: var(--color-text-accent);
+    font-size: 1.4em;
+    margin: 5px 0 30px 0; /* Margin atas 5px, bawah 30px (SPASI TAMBAHAN) */
+    font-weight: 600;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+  }
+  
+  p {
+    line-height: 1.7;
+    margin: 10px 0;
+    font-weight: 300;
+  }
+
+  /* Personalized Greeting Styling */
+  .personalized-greeting {
+      margin: 20px 0 30px 0;
+      font-weight: 600;
+      color: var(--color-text-light);
+      text-align: center;
+  }
+
+  .personalized-greeting .yth {
+      font-size: 0.95em;
+      font-weight: 400;
+      margin-bottom: 5px;
+      color: var(--color-text-accent);
+      line-height: 1;
+  }
+
+  .personalized-greeting .name {
+      font-size: 1.4em;
+      font-weight: 700;
+      color: var(--color-secondary);
+      margin: 0;
+      text-transform: capitalize;
+      line-height: 1.2;
+      padding: 5px 0;
+  }
+
+  .personalized-greeting .title {
+      font-size: 1.1em;
+      font-weight: 500;
+      color: #B2D7FF;
+      margin-top: 5px;
+      line-height: 1;
+  }
+
+  .arabic {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8em;
+    color: #F0F0F0; 
+    margin: 20px 0 5px 0;
+    display: block;
+    text-shadow: 0 0 5px rgba(255,255,255,0.2);
+  }
+
+  /* --- DETAIL ACARA --- */
+  .details {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: left;
+    border-left: 5px solid var(--color-secondary);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+  }
+
+  .details p {
+    margin: 10px 0;
+    font-weight: 400;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .details p strong {
+      min-width: 120px;
+  }
+
+  .agenda {
+    list-style-type: '🌿';
+    padding-left: 20px;
+    margin-top: 15px;
+    font-size: 0.95em;
+  }
+
+  .agenda li {
+    margin-bottom: 8px;
+    padding-left: 5px;
+  }
+  
+  /* --- MAP BUTTON --- */
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--color-secondary);
+    color: var(--color-primary); 
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    margin: 15px 0 5px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .map-btn:hover {
+    background: #E0E0E0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  }
+
+  /* --- COUNTDOWN STYLING --- */
+  #countdown-container {
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .countdown-label {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--color-secondary);
+      margin-bottom: 15px;
+      text-transform: uppercase;
+  }
+
+  #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+  }
+
+  .countdown-unit {
+      text-align: center;
+      background: var(--color-secondary);
+      color: var(--color-primary);
+      padding: 10px 15px;
+      border-radius: 8px;
+      min-width: 60px;
+      font-weight: 700;
+  }
+
+  .countdown-unit span {
+      display: block;
+      font-size: 1.8em;
+      line-height: 1;
+  }
+
+  .countdown-unit small {
+      display: block;
+      font-size: 0.8em;
+      margin-top: 5px;
+      font-weight: 400;
+  }
+  /* --- END COUNTDOWN STYLING --- */
+
+  /* --- FOOTER & CONTACT --- */
+  .dresscode {
+    margin-top: 20px;
+    font-style: italic;
+    color: var(--color-text-accent);
+    font-weight: 300;
+    padding: 10px;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+  }
+
+  .footer {
+    font-size: 0.9em;
+    color: #d0eaff;
+    margin-top: 40px;
+    line-height: 1.5;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer strong {
+      color: var(--color-secondary);
+  }
+
+  /* Styling Link Kontak WA */
+  .contact-list {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 15px 0 25px 0;
+      padding: 0;
+      list-style: none;
+  }
+  
+  .contact-list li {
+      text-align: center;
+  }
+
+  .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--color-wa);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+
+  .contact-link:hover {
+      background: #1DA851;
+      transform: translateY(-1px);
+  }
+  
+  .contact-label {
+      font-size: 0.8em;
+      color: var(--color-text-accent);
+      display: block;
+      margin-top: 5px;
+  }
+  
+  /* --- BUTTONS & FORMS --- */
+  .btns {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  button {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  button:hover {
+    background-color: #E0E0E0;
+    transform: translateY(-2px);
+  }
+
+  .confirm-msg {
+    margin-top: 20px;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  #reasonForm {
+      margin-top: 25px;
+      padding: 15px;
+      background: rgba(0,0,0,0.2);
+      border-radius: 10px;
+  }
+  
+  #reasonForm p {
+      font-weight: 400;
+  }
+
+  textarea {
+    width: 90%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--color-text-accent);
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95em;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-light);
+    resize: vertical;
+  }
+  
+  #reasonForm button {
+      margin-top: 15px;
+      padding: 8px 18px;
+      font-size: 0.9em;
+  }
+
+  .hidden { display: none !important; }
+
+  /* --- MEDIA QUERIES (Responsiveness) --- */
+  @media (max-width: 500px) {
+    .card {
+      padding: 30px 15px; /* Sesuaikan padding kartu di HP */
+    }
+    h1 {
+      font-size: 2em;
+      letter-spacing: 1px;
+    }
+    h2 {
+      font-size: 1.2em;
+      margin-bottom: 25px; /* Sesuaikan margin di HP */
+    }
+    .details p strong {
+      min-width: 100px;
+    }
+    .btns button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .personalized-greeting .name {
+        font-size: 1.2em;
+    }
+    .contact-list {
+        flex-direction: column; 
+        gap: 10px;
+    }
+    .contact-link {
+        width: 80%;
+        justify-content: center;
+    }
+    #countdown {
+        gap: 10px;
+    }
+    .countdown-unit {
+        min-width: 50px;
+        padding: 8px 10px;
+    }
+    .countdown-unit span {
+        font-size: 1.5em;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <h1>UNDANGAN RAPAT ALUMNI</h1>
+  <h2>Pondok Pesantren Ar-Ridwan</h2>
+
+  <div class="personalized-greeting" id="personalizedGreeting">
+      <p class="yth">Yth.</p>
+      <p class="name">Seluruh Alumni</p>
+      <p class="title">Pondok Pesantren Ar-Ridwan</p>
+  </div>
+
+  <p>Assalamu’alaikum warahmatullahi wabarakatuh,</p>
+
+  <p>Dengan hormat, kami mengundang alumni Pondok Pesantren Ar-Ridwan angkatan 2020-2025 hadir dalam rapat alumni yang insyaAllah akan dilaksanakan pada:</p>
+
+  <div class="details">
+    <p><strong>Hari/Tanggal:</strong> Ahad, 7 Desember 2025</p>
+    <p><strong>Waktu:</strong> 09.00 WIB – selesai</p>
+    <p><strong>Tempat:</strong> Gedung BLK Pondok Pesantren Ar-Ridwan</p>
+    <a class="map-btn" href="https://maps.app.goo.gl/gcCEbhrCAeoKR3Ms5" target="_blank">    Buka Lokasi di Google Maps</a>
+    <p><strong> Agenda Rapat:</strong></p>
+    <ul class="agenda">
+      <li>Pembentukan kepengurusan alumni masa khidmat 2026–2027</li>
+      <li>Pembubaran panitia temu kangen 2025 & pembentukan panitia baru</li>
+    </ul>
+  </div>
+
+  <div id="countdown-container">
+      <h3 class="countdown-label">Acara Dimulai Dalam:</h3>
+      <div id="countdown"></div>
+  </div>
+  <p class="dresscode">Dresscode:Menggunakan pakaian muslim yang sopan.</p>
+
+  <p>Kehadiran kalian semua sangat kami harapkan demi kelancaran dan kebersamaan kita semua. Mari bersama-sama membangun ikatan alumni yang lebih solid.</p>
+
+  <div class="btns">
+    <button onclick="confirmPresence(true)">✅ Konfirmasi Kehadiran</button>
+    <button onclick="showReasonForm()">❌ Berhalangan Hadir</button>
+  </div>
+
+  <div id="reasonForm" class="hidden">
+    <p>Mohon tuliskan alasan ketidakhadiran:</p>
+    <textarea id="reason" rows="3" placeholder="Tulis alasan Anda di sini..."></textarea><br>
+    <button onclick="submitReason()">Kirim Alasan</button>
+  </div>
+
+  <p class="confirm-msg" id="confirmMsg"></p>
+
+  <div class="footer">
+    <p>Informasi lebih lanjut, silakan hubungi <br>
+    <strong>Panitia Rapat Alumni Ar-Ridwan</strong>
+    <strong>Melalui WhatsApp dibawah ini</strong></p>
+    
+    <ul class="contact-list">
+        <li>
+            <a class="contact-link" 
+               id="linkRiza" 
+               href="https://wa.me/6285642234397" 
+               target="_blank">
+               kang Riza Rohmatu H 
+            </a>
+        </li>
+        <li>
+            <a class="contact-link" 
+               id="linkRiska" 
+               href="https://wa.me/6285624525455" 
+               target="_blank">
+               Mba Riska Failiza 
+            </a>
+        </li>
+    </ul>
+    
+    <span class="arabic">Jazakumullahu khairan katsiran</span>
+    <p>Wassalamu’alaikum warahmatullahi wabarakatuh</p>
+  </div>
+
+</div>
+
+<script>
+  // --- LOGIC FOR DYNAMIC GREETING AND WA MESSAGE ---
+  const urlParams = new URLSearchParams(window.location.search);
+  const nama = urlParams.get('nama');
+  const jabatan = urlParams.get('jabatan');
+  const greetingContainer = document.getElementById('personalizedGreeting');
+  
+  let namaPenerima = 'Alumni'; 
+  
+  if (nama && jabatan) {
+    namaPenerima = nama.replace(/\+/g, ' '); 
+    greetingContainer.querySelector('.name').textContent = namaPenerima;
+    greetingContainer.querySelector('.title').textContent = jabatan.replace(/\+/g, ' ');
+  } else if (nama) {
+    namaPenerima = nama.replace(/\+/g, ' '); 
+    greetingContainer.querySelector('.name').textContent = namaPenerima;
+    greetingContainer.querySelector('.title').textContent = 'Alumni Pondok Pesantren Ar-Ridwan';
+  } else {
+    // Default message when accessing the base link
+    greetingContainer.querySelector('.name').textContent = 'Seluruh Alumni';
+    greetingContainer.querySelector('.title').textContent = 'Pondok Pesantren Ar-Ridwan';
+    namaPenerima = 'Alumni Pondok Pesantren Ar-Ridwan';
+  }
+
+  // LOGIC FOR DYNAMIC WHATSAPP MESSAGE
+  const initialMessage = `Assalamu'alaikum, saya ${namaPenerima} ingin bertanya tentang rapat alumni Ar-Ridwan.`;
+  const encodedMessage = encodeURIComponent(initialMessage);
+
+  document.getElementById('linkRiza').href = `https://wa.me/6285642234397?text=${encodedMessage}`;
+  document.getElementById('linkRiska').href = `https://wa.me/6285624525455?text=${encodedMessage}`;
+
+
+  // --- LOGIC FOR COUNTDOWN TIMER ---
+  // Target date/time: Ahad, 7 Desember 2025, 09.00 WIB
+  const targetDate = new Date("2025-12-07T09:00:00").getTime();
+  const countdownElement = document.getElementById("countdown");
+
+  function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance < 0) {
+          clearInterval(countdownInterval);
+          countdownElement.innerHTML = "<div style='color: var(--color-secondary); font-size: 1.2em; font-weight: 700;'>ACARA SEDANG BERLANGSUNG!</div>";
+          return;
+      }
+
+      countdownElement.innerHTML = `
+          <div class="countdown-unit">
+              <span>${days}</span>
+              <small>Hari</small>
+          </div>
+          <div class="countdown-unit">
+              <span>${hours}</span>
+              <small>Jam</small>
+          </div>
+          <div class="countdown-unit">
+              <span>${minutes}</span>
+              <small>Menit</small>
+          </div>
+          <div class="countdown-unit">
+              <span>${seconds}</span>
+              <small>Detik</small>
+          </div>
+      `;
+  }
+
+  // Set interval to update every 1 second
+  updateCountdown();
+  const countdownInterval = setInterval(updateCountdown, 1000);
+
+
+  // --- LOGIC FOR RSVP BUTTONS ---
+  function confirmPresence(isPresent) {
+    const msg = document.getElementById('confirmMsg');
+    const reasonForm = document.getElementById('reasonForm');
+    msg.textContent = '';
+    reasonForm.classList.add('hidden');
+
+    if (isPresent) {
+      msg.textContent = '✅ Terima kasih! Konfirmasi kehadiran Anda telah dicatat.';
+      msg.style.color = '#b3ffb3'; 
+      msg.style.background = 'rgba(0, 255, 0, 0.1)';
+    }
+  }
+
+  function showReasonForm() {
+    document.getElementById('reasonForm').classList.remove('hidden');
+    document.getElementById('confirmMsg').textContent = '';
+  }
+
+  function submitReason() {
+    const reason = document.getElementById('reason').value.trim();
+    const msg = document.getElementById('confirmMsg');
+
+    if (reason.length < 5) {
+      msg.textContent = '⚠️ Mohon isi alasan (minimal 5 karakter) terlebih dahulu.';
+      msg.style.color = '#ffcccc';
+      msg.style.background = 'rgba(255, 0, 0, 0.1)';
+      return;
+    }
+
+    msg.textContent = '📩 Terima kasih! Alasan ketidakhadiran Anda telah kami catat.';
+    msg.style.color = '#ffb3b3'; 
+    msg.style.background = 'rgba(255, 100, 100, 0.1)';
+    document.getElementById('reasonForm').classList.add('hidden');
+  }
+</script>
+
+</body>
+</html>
